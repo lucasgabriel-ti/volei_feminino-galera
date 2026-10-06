@@ -1,0 +1,721 @@
+/* =========================================
+   VARIÁVEIS
+========================================= */
+
+:root {
+
+    --verde: #009c3b;
+    --verde-escuro: #006b29;
+
+    --amarelo: #ffdf00;
+
+    --azul: #002776;
+    --azul-claro: #1e63d6;
+
+    --branco: #ffffff;
+
+    --fundo: #061a12;
+    --fundo-secundario: #0a2419;
+
+    --cartao: #0d2b1d;
+    --cartao-hover: #123b27;
+
+    --texto: #f5fff9;
+    --texto-secundario: #a9c2b2;
+
+    --borda: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   CONFIGURAÇÃO GERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Roboto", sans-serif;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(0, 156, 59, 0.15),
+            transparent 35%),
+        var(--fundo);
+
+    color: var(--texto);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 480px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(rgba(0, 39, 118, 0.72),
+            rgba(0, 156, 59, 0.82)),
+        url("imagens/hero-volei.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(135deg,
+            rgba(0, 39, 118, 0.35),
+            rgba(0, 156, 59, 0.25));
+}
+
+
+.hero-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+
+    animation: aparecer 1s ease;
+}
+
+
+.hero-tag {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 223, 0, 0.6);
+
+    border-radius: 50px;
+
+    color: var(--amarelo);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.hero h1 {
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+.hero p {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #f5fff9;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SEÇÕES
+========================================= */
+
+.tema {
+
+    padding: 80px 0;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.tema:last-child {
+    border-bottom: none;
+}
+
+
+.tema-titulo {
+
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+
+.tema-titulo span {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--amarelo);
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.tema-titulo h2 {
+
+    margin-bottom: 15px;
+
+    color: var(--branco);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 900;
+}
+
+
+.tema-titulo p {
+
+    color: var(--texto-secundario);
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.tema-card {
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: var(--cartao);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.tema-card:hover {
+
+    transform: translateY(-10px);
+
+    background: var(--cartao-hover);
+
+    border-color:
+        rgba(255, 223, 0, 0.35);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+.tema-card:focus {
+
+    outline: 2px solid var(--amarelo);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   IMAGEM DOS CARDS
+========================================= */
+
+.card-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            rgba(0, 156, 59, 0.35),
+            rgba(0, 39, 118, 0.35));
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.card-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+.card-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.55));
+
+    pointer-events: none;
+}
+
+
+.tema-card:hover .card-image img {
+
+    transform: scale(1.08);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================================
+   EMOJI DA IMAGEM
+========================================= */
+
+.image-emoji {
+
+    position: absolute;
+
+    right: 18px;
+
+    bottom: 15px;
+
+    z-index: 2;
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(4, 20, 13, 0.82);
+
+    border:
+        1px solid rgba(255, 223, 0, 0.55);
+
+    border-radius: 50%;
+
+    font-size: 1.7rem;
+
+    backdrop-filter: blur(7px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.tema-card:hover .image-emoji {
+
+    transform: scale(1.1);
+
+    border-color: var(--amarelo);
+}
+
+
+/* =========================================
+   CONTEÚDO DOS CARDS
+========================================= */
+
+.card-content {
+
+    padding: 25px;
+}
+
+
+.card-tag {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--amarelo);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.card-content h3 {
+
+    margin-bottom: 12px;
+
+    color: var(--branco);
+
+    font-size: 1.45rem;
+
+    font-weight: 800;
+}
+
+
+.card-content p {
+
+    min-height: 80px;
+
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+.card-category {
+
+    display: block;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    color: #d6e7dc;
+
+    font-size: 0.82rem;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   POPOVER BOOTSTRAP
+========================================= */
+
+.popover {
+
+    max-width: 320px;
+
+    background: #0b2418;
+
+    border: 1px solid rgba(255, 223, 0, 0.35);
+
+    border-radius: 12px;
+}
+
+
+.popover-header {
+
+    background:
+        linear-gradient(135deg,
+            var(--verde-escuro),
+            var(--azul));
+
+    color: var(--branco);
+
+    border-bottom: none;
+
+    font-weight: 700;
+}
+
+
+.popover-body {
+
+    color: #d7e8dd;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(135deg,
+            #003c1a,
+            #001b36);
+
+    border-top:
+        1px solid rgba(255, 223, 0, 0.15);
+}
+
+
+.footer-conteudo {
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+
+.footer-conteudo h2 {
+
+    margin-bottom: 12px;
+
+    font-size: 1.7rem;
+
+    font-weight: 800;
+}
+
+
+.footer-conteudo p {
+
+    margin-bottom: 15px;
+
+    color: var(--texto-secundario);
+}
+
+
+.footer-conteudo span {
+
+    color: var(--amarelo);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   ANIMAÇÃO
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        min-height: 420px;
+
+    }
+
+
+    .tema {
+
+        padding: 60px 0;
+
+    }
+
+
+    .card-image {
+
+        height: 210px;
+
+    }
+
+
+    .card-content p {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 576px) {
+
+    .hero {
+
+        min-height: 400px;
+
+        padding: 40px 18px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.4rem;
+
+    }
+
+
+    .hero p {
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .tema {
+
+        padding: 50px 5px;
+
+    }
+
+
+    .tema-titulo {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .tema-titulo h2 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .card-image {
+
+        height: 190px;
+
+    }
+
+
+    .image-emoji {
+
+        width: 46px;
+
+        height: 46px;
+
+        right: 14px;
+
+        bottom: 12px;
+
+        font-size: 1.5rem;
+
+    }
+
+
+    .card-content {
+
+        padding: 20px;
+
+    }
+
+
+    footer {
+
+        padding: 45px 20px;
+
+    }
+
+}
